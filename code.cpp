@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> 
+#include <cmath>
 #include <iostream> // cout, endl
 #include <fstream> // open, is_open, close, ignore
 #include <string> // string, find_last_of, substr
@@ -12,7 +12,7 @@
 using namespace std;
 
 struct table{
-	//1~4 [0]¤£©ñ 
+	//1~4 [0]ï¿½ï¿½ï¿½ï¿½ 
 	vector<string> one ;
 	vector<string> two ;
 	vector<string> three ;
@@ -72,7 +72,7 @@ class tablefc {
 		//1	Table1.table 
 		fname = "Table1.table";
 		fstream _file1( fname.c_str()) ;
-		while ( !_file1.eof() ) { //¤£¬O³Ì«á¤@¦æ 
+		while ( !_file1.eof() ) { //ï¿½ï¿½ï¿½Oï¿½Ì«ï¿½@ï¿½ï¿½ 
 
    			_file1>>str;
        		alltb.one.push_back(str);
@@ -81,7 +81,7 @@ class tablefc {
   		
   		fname = "Table2.table";
 		fstream _file2( fname.c_str()) ;
-		while ( !_file2.eof() ) { //¤£¬O³Ì«á¤@¦æ 
+		while ( !_file2.eof() ) { //ï¿½ï¿½ï¿½Oï¿½Ì«ï¿½@ï¿½ï¿½ 
 
    			_file2>>str;
        		alltb.two.push_back(str);
@@ -90,7 +90,7 @@ class tablefc {
   		
   		fname = "Table3.table";
 		fstream _file3( fname.c_str()) ;
-		while ( !_file3.eof() ) { //¤£¬O³Ì«á¤@¦æ 
+		while ( !_file3.eof() ) { //ï¿½ï¿½ï¿½Oï¿½Ì«ï¿½@ï¿½ï¿½ 
 
    			_file3>>str;
        		alltb.three.push_back(str);
@@ -99,7 +99,7 @@ class tablefc {
   		
   		fname = "Table4.table";
 		fstream _file4( fname.c_str()) ;
-		while ( !_file4.eof() ) { //¤£¬O³Ì«á¤@¦æ 
+		while ( !_file4.eof() ) { //ï¿½ï¿½ï¿½Oï¿½Ì«ï¿½@ï¿½ï¿½ 
 
    			_file4>>str;
        		alltb.four.push_back(str);
@@ -111,18 +111,18 @@ class tablefc {
   		alltb.sev.resize(100);
 	}
 	
-	//Åª«ü¥O 
-	 read( string & fname){
+	//Åªï¿½ï¿½ï¿½O 
+	void read( string & fname){
 		int i = 0 ;
 		string str; 
 
 		cout<<"input file name: ";
 		cin>>fname;
 		
-		ifstream _file( fname.c_str()) ; // §â¦W¬°fnameªºÀÉ®×¥´¶} 
-		if (_file.is_open()) { //ÀÉ®×¦s¦b 
+		ifstream _file( fname.c_str()) ; // ï¿½ï¿½Wï¿½ï¿½fnameï¿½ï¿½ï¿½É®×¥ï¿½ï¿½} 
+		if (_file.is_open()) { //ï¿½É®×¦sï¿½b 
 		
-	  		while ( !_file.eof() ) { //¤£¬O³Ì«á¤@¦æ 
+	  		while ( !_file.eof() ) { //ï¿½ï¿½ï¿½Oï¿½Ì«ï¿½@ï¿½ï¿½ 
 
         		getline(_file, str, '\n');  
         		if(str!="\0")
@@ -141,7 +141,7 @@ class tablefc {
 	
 
 	
-	//¤Átoken   
+	//ï¿½ï¿½token   
 	void cut(){
 		
 		string token="\0",tmp="\0";
@@ -151,7 +151,7 @@ class tablefc {
 		
 		for(int i=0; i<instr.size(); i++){
 			//cout<<instr[i]<<endl;
-			//¤Átoken 
+			//ï¿½ï¿½token 
 			for(int j=0; j<instr[i].size(); j++){
 				tmp=instr[i][j];
 				token="\0";
@@ -206,9 +206,9 @@ class tablefc {
 		 				string bf = token;
 						for (int j=0; j <token.size(); j++){  
 							if((int)alltb.six[i][j]>=97 && (int)alltb.six[i][j]<=122) //a~z 
-       							token[j] = tolower(token[j]);  //¤j¼gÅÜ¤p¼g  
+       							token[j] = tolower(token[j]);  //ï¿½jï¿½gï¿½Ü¤pï¿½g  
        						else
-       							token[j] = toupper(token[j]); //¤p¼gÅÜ¤j¼g 
+       							token[j] = toupper(token[j]); //ï¿½pï¿½gï¿½Ü¤jï¿½g 
 						}
        			
 						if(token == alltb.six[i]){
@@ -259,7 +259,7 @@ class tablefc {
 
 			}
 			
-			//¤À¹j 
+			//ï¿½ï¿½ï¿½j 
 			temp.tb=0;
 			temp.val=0;
 			temp.name="\0";
@@ -269,7 +269,7 @@ class tablefc {
 		
 	}
 	
-	int sum(string str){  //ºâasciiÁ`©M 
+	int sum(string str){  //ï¿½ï¿½asciiï¿½`ï¿½M 
 		int num =0;
 		for(int i =0; i<str.size(); i++)
 			num = (int)str[i] + num;	
@@ -278,11 +278,11 @@ class tablefc {
 	
 	void hash( string str, int tb){
 
-		int ip =sum(str)%100; //ºâ¦ì¸m 
+		int ip =sum(str)%100; //ï¿½ï¿½ï¿½m 
 		
 		if(tb==5){
 		
-				while(alltb.five[ip]!="\0"){  //¸I¼² 
+				while(alltb.five[ip]!="\0"){  //ï¿½Iï¿½ï¿½ 
 					ip++;
 					if(ip>=100)
 						ip=ip%100;
@@ -337,9 +337,9 @@ class tablefc {
 		 	string bf = key;
 			for (int j=0; j <key.size(); j++){  
 				if((int)alltb.one[i][j]>=97 && (int)alltb.one[i][j]<=122)  //a~z 
-       				key[j] = tolower(key[j]);  //¤j¼gÅÜ¤p¼g  
+       				key[j] = tolower(key[j]);  //ï¿½jï¿½gï¿½Ü¤pï¿½g  
        			else
-       				key[j] = toupper(key[j]); //¤p¼gÅÜ¤j¼g 
+       				key[j] = toupper(key[j]); //ï¿½pï¿½gï¿½Ü¤jï¿½g 
 			}
 			 
 			if(key == alltb.one[i]){
@@ -358,9 +358,9 @@ class tablefc {
 			string bf = key;
 			for (int j=0; j <key.size(); j++){  
 				if((int)alltb.two[i][j]>=97 && (int)alltb.two[i][j]<=122) //a~z 
-       				key[j] = tolower(key[j]);  //¤j¼gÅÜ¤p¼g  
+       				key[j] = tolower(key[j]);  //ï¿½jï¿½gï¿½Ü¤pï¿½g  
        			else
-       				key[j] = toupper(key[j]); //¤p¼gÅÜ¤j¼g 
+       				key[j] = toupper(key[j]); //ï¿½pï¿½gï¿½Ü¤jï¿½g 
 			}
        			
        		
@@ -378,9 +378,9 @@ class tablefc {
 		 	string bf = key;
 			for (int j=0; j <key.size(); j++){  
 				if((int)alltb.three[i][j]>=97 && (int)alltb.three[i][j]<=122) //a~z 
-       				key[j] = tolower(key[j]);  //¤j¼gÅÜ¤p¼g  
+       				key[j] = tolower(key[j]);  //ï¿½jï¿½gï¿½Ü¤pï¿½g  
        			else
-       				key[j] = toupper(key[j]); //¤p¼gÅÜ¤j¼g 
+       				key[j] = toupper(key[j]); //ï¿½pï¿½gï¿½Ü¤jï¿½g 
 			}
        			
 			if(key == alltb.three[i]){
@@ -413,9 +413,9 @@ class tablefc {
 		 	string bf = key;
 			for (int j=0; j <key.size(); j++){  
 				if((int)alltb.six[i][j]>=97 && (int)alltb.six[i][j]<=122) //a~z 
-       				key[j] = tolower(key[j]);  //¤j¼gÅÜ¤p¼g  
+       				key[j] = tolower(key[j]);  //ï¿½jï¿½gï¿½Ü¤pï¿½g  
        			else
-       				key[j] = toupper(key[j]); //¤p¼gÅÜ¤j¼g 
+       				key[j] = toupper(key[j]); //ï¿½pï¿½gï¿½Ü¤jï¿½g 
 			}
        			
 			if(key == alltb.six[i]){
@@ -481,7 +481,7 @@ public:
 					}
 					else if(altk[i].tb!=4)
 						tmp.op1	=altk[i];
-					else{ //,«e¨Soperand 
+					else{ //,ï¿½eï¿½Soperand 
 						if(altk[i-1].name!="#" && altk[i-1].name!="@"&&altk[i].name!="#"&&altk[i].name!="@"&&altk[i].name!="="){
 							tmp.opcode.name="syntax erro";
 						//	cout<<"syntax erro2"<<endl;
@@ -858,7 +858,7 @@ public:
 		for(int k=0; k<str.lebal.length(); k++)
 			if(str.lebal[k]!='=' && str.lebal[k]!='C' && str.lebal[k]!='c' && str.lebal[k]!='X'&& str.lebal[k]!='x'&& (int)str.lebal[k]!=39)
 				lit=lit+str.lebal[k];
-		int ip =imp.sum(str.lebal)%100; //ºâ¦ì¸m 
+		int ip =imp.sum(str.lebal)%100; //ï¿½ï¿½ï¿½m 
 		
 
 				while(literal[ip].lebal!="\0"){
@@ -893,7 +893,7 @@ public:
 			//	cout<<"pc\t"<<pc<<endl;
 				while(instr[ip][0] =='.' || instr[ip].find(".") != string::npos)
 					ip++;
-				//§äopcode 
+				//ï¿½ï¿½opcode 
 				for(int j=0; j<opc.size();j++){
 				
 					string key = opc[j].name;
@@ -901,9 +901,9 @@ public:
 				
 					for (int m=0; m <opc[j].name.length(); m++){  
 						if((int)opc[j].name[m]>=97 && (int)opc[j].name[m]<=122) //a~z 
-	       					key[m] = toupper(key[m]);  //¤p¼gÅÜ¤j¼g 
+	       					key[m] = toupper(key[m]);  //ï¿½pï¿½gï¿½Ü¤jï¿½g 
 	       				else
-	       					key[m] = tolower(key[m]); // ¤j¼gÅÜ¤p¼g  
+	       					key[m] = tolower(key[m]); // ï¿½jï¿½gï¿½Ü¤pï¿½g  
 					}	
 					
 					if(grp[i].opcode.name[0]=='+'){
@@ -934,11 +934,11 @@ public:
 				} 
 	
 			//	cout<<"pc set: "<<pc<<endl;
-				//²ÕºAªí 
+				//ï¿½ÕºAï¿½ï¿½ 
 				string lebaladdr="\0";
 			//	cout<<"name:"<<grp[i].op1.name<<endl;
-				for(int m=0; m<i && grp[i].op1.name!="\0"; m++){  //³o­Ólebal¤§«e¦³¥X²{¹L 
-					if(grp[m].label.name==grp[i].op1.name){ //m¤§«e¥X²{  i²{¦b operand
+				for(int m=0; m<i && grp[i].op1.name!="\0"; m++){  //ï¿½oï¿½ï¿½lebalï¿½ï¿½ï¿½eï¿½ï¿½ï¿½Xï¿½{ï¿½L 
+					if(grp[m].label.name==grp[i].op1.name){ //mï¿½ï¿½ï¿½eï¿½Xï¿½{  iï¿½{ï¿½b operand
 						lebaladdr=mc[m].addr;
 						break;
 					}
@@ -948,7 +948,7 @@ public:
 				//lebaladdr=="\0" forward ref
 				if(lebaladdr=="\0"&&i!=0){
 					string ok="f";
-					for(int m=0; m<cft.size()&&grp[i].op1.name[0]!='='; m++){ //operand¤w¦b²ÕºAªí¸Ì 
+					for(int m=0; m<cft.size()&&grp[i].op1.name[0]!='='; m++){ //operandï¿½wï¿½bï¿½ÕºAï¿½ï¿½ï¿½ï¿½ 
 						if(grp[i].op1.name==cft[m].lebal){
 							cft[m].mcip.push_back(i);
 							cft[m].addr.push_back(pc);
@@ -1214,7 +1214,7 @@ public:
 				mc.push_back(code);
 	
 			//	cout<<"done:(code) "<<mc[i].mc<<endl;
-						//¸É¾÷¾¹½X (in cofi tb) 
+						//ï¿½É¾ï¿½ï¿½ï¿½ï¿½X (in cofi tb) 
 			}
 		//	cout<<"code.addr2:\t"<<code.addr<<endl;
 						for(int n=0; n<cft.size(); n++){
@@ -1478,7 +1478,7 @@ string caldisp(string ta, string pc){
 	string tenpc=cvt(pc, 16);
 	string disp, ans;
 	int tmp= atoi(tenta.c_str()) - atoi(tenpc.c_str());
-	if(tmp>0){ //ta-pc(10¶i¦ì)=tmp ->  Âà2 ->3 nibber(12 bits)­n¸Éº¡ -> Âà16
+	if(tmp>0){ //ta-pc(10ï¿½iï¿½ï¿½)=tmp ->  ï¿½ï¿½2 ->3 nibber(12 bits)ï¿½nï¿½Éºï¿½ -> ï¿½ï¿½16
 		ans=cvttotw(int2str(tmp), 2);
 		
 		for(int i=ans.length()-1; i<12; i++)
@@ -1493,8 +1493,8 @@ string caldisp(string ta, string pc){
 		
 		return disp;
 	}
-	else{  //Âà2-> pc ªº 1 to 0¡A0 to 1 «á +1 (µ²ªG³]¬°af) -> af©Mta¬Û¥[(2¶i¦ì) ->  Âà16
-			//3 nibber(12 bits)­n¸Éº¡ 
+	else{  //ï¿½ï¿½2-> pc ï¿½ï¿½ 1 to 0ï¿½A0 to 1 ï¿½ï¿½ +1 (ï¿½ï¿½ï¿½Gï¿½]ï¿½ï¿½af) -> afï¿½Mtaï¿½Û¥[(2ï¿½iï¿½ï¿½) ->  ï¿½ï¿½16
+			//3 nibber(12 bits)ï¿½nï¿½Éºï¿½ 
 		
 		string tmpc=cvttotw(tenpc, 2);
 		string	tmta=cvttotw(tenta, 2);
@@ -1585,7 +1585,7 @@ string addsix(string num, string num1){  //6bits(2)
 
 string int2str(int &i)
 {
-stringstream ss; //¨Ï¥ÎªÅ??(Àq?)ªºÌÛ³y¨ç?
+stringstream ss; //ï¿½Ï¥Îªï¿½??(ï¿½q?)ï¿½ï¿½ï¿½Û³yï¿½ï¿½?
 ss << i;
 return ss.str();
 }
@@ -1684,7 +1684,7 @@ int main() {
 	mkc.mcc(sy.grp, tb.instr, fname);
 
 			str=fname+"_out.txt";
-          ofstream out(str.c_str());  //¿é¥XÀÉ 
+          ofstream out(str.c_str());  //ï¿½ï¿½Xï¿½ï¿½ 
           
 			
 			if(fname.find("sicxe") != string::npos || fname.find("SICXE") != string::npos){
